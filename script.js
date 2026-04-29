@@ -1,24 +1,223 @@
 const questions = [
-  { question: "HTML stands for?", answers: ["Hyper Text Markup Language","High Text","Machine Language","None"], correct: 0 },
-  { question: "CSS is used for?", answers: ["Styling","Programming","Database","Server"], correct: 0 },
-  { question: "JS is?", answers: ["Programming Language","Markup","Styling","None"], correct: 0 },
-  { question: "Which is frontend?", answers: ["HTML","Python","Java","C++"], correct: 0 },
-  { question: "Which is backend?", answers: ["Node.js","HTML","CSS","Figma"], correct: 0 },
-  { question: "Figma is used for?", answers: ["UI Design","Coding","Hosting","Testing"], correct: 0 },
-  { question: "Tailwind is?", answers: ["CSS Framework","Language","Library","Tool"], correct: 0 },
-  { question: "React is?", answers: ["Library","Database","Language","OS"], correct: 0 },
-  { question: "Bootstrap is?", answers: ["CSS Framework","Language","DB","IDE"], correct: 0 },
-  { question: "Which is database?", answers: ["MongoDB","HTML","CSS","JS"], correct: 0 },
-  { question: "Python is?", answers: ["Language","Framework","DB","IDE"], correct: 0 },
-  { question: "Git is used for?", answers: ["Version Control","Styling","Design","Hosting"], correct: 0 },
-  { question: "API stands for?", answers: ["Application Programming Interface","App Code","Program Data","None"], correct: 0 },
-  { question: "Which is mobile OS?", answers: ["Android","HTML","CSS","Node"], correct: 0 },
-  { question: "UI means?", answers: ["User Interface","User Input","User Info","None"], correct: 0 },
-  { question: "UX means?", answers: ["User Experience","User Example","User Exit","None"], correct: 0 },
-  { question: "Which tool for design?", answers: ["Figma","VS Code","Chrome","Node"], correct: 0 },
-  { question: "Which is JS framework?", answers: ["Next.js","HTML","CSS","SQL"], correct: 0 },
-  { question: "Which is styling?", answers: ["CSS","JS","Python","Java"], correct: 0 },
-  { question: "Which is markup?", answers: ["HTML","JS","CSS","Python"], correct: 0 }
+  {
+    question: "HTML stands for?",
+    answers: [
+      "Hyper Text Markup Language",
+      "High Text",
+      "Machine Language",
+      "None"
+    ],
+    correct: "Hyper Text Markup Language"
+  },
+
+  {
+    question: "CSS is used for?",
+    answers: [
+      "Styling",
+      "Programming",
+      "Database",
+      "Server"
+    ],
+    correct: "Styling"
+  },
+
+  {
+    question: "JS is?",
+    answers: [
+      "Programming Language",
+      "Markup",
+      "Styling",
+      "None"
+    ],
+    correct: "Programming Language"
+  },
+
+  {
+    question: "Which is frontend?",
+    answers: [
+      "HTML",
+      "Python",
+      "Java",
+      "C++"
+    ],
+    correct: "HTML"
+  },
+
+  {
+    question: "Which is backend?",
+    answers: [
+      "Node.js",
+      "HTML",
+      "CSS",
+      "Figma"
+    ],
+    correct: "Node.js"
+  },
+
+  {
+    question: "Figma is used for?",
+    answers: [
+      "UI Design",
+      "Coding",
+      "Hosting",
+      "Testing"
+    ],
+    correct: "UI Design"
+  },
+
+  {
+    question: "Tailwind is?",
+    answers: [
+      "CSS Framework",
+      "Language",
+      "Library",
+      "Tool"
+    ],
+    correct: "CSS Framework"
+  },
+
+  {
+    question: "React is?",
+    answers: [
+      "Library",
+      "Database",
+      "Language",
+      "OS"
+    ],
+    correct: "Library"
+  },
+
+  {
+    question: "Bootstrap is?",
+    answers: [
+      "CSS Framework",
+      "Language",
+      "DB",
+      "IDE"
+    ],
+    correct: "CSS Framework"
+  },
+
+  {
+    question: "Which is database?",
+    answers: [
+      "MongoDB",
+      "HTML",
+      "CSS",
+      "JS"
+    ],
+    correct: "MongoDB"
+  },
+
+  {
+    question: "Python is?",
+    answers: [
+      "Language",
+      "Framework",
+      "DB",
+      "IDE"
+    ],
+    correct: "Language"
+  },
+
+  {
+    question: "Git is used for?",
+    answers: [
+      "Version Control",
+      "Styling",
+      "Design",
+      "Hosting"
+    ],
+    correct: "Version Control"
+  },
+
+  {
+    question: "API stands for?",
+    answers: [
+      "Application Programming Interface",
+      "App Code",
+      "Program Data",
+      "None"
+    ],
+    correct: "Application Programming Interface"
+  },
+
+  {
+    question: "Which is mobile OS?",
+    answers: [
+      "Android",
+      "HTML",
+      "CSS",
+      "Node"
+    ],
+    correct: "Android"
+  },
+
+  {
+    question: "UI means?",
+    answers: [
+      "User Interface",
+      "User Input",
+      "User Info",
+      "None"
+    ],
+    correct: "User Interface"
+  },
+
+  {
+    question: "UX means?",
+    answers: [
+      "User Experience",
+      "User Example",
+      "User Exit",
+      "None"
+    ],
+    correct: "User Experience"
+  },
+
+  {
+    question: "Which tool for design?",
+    answers: [
+      "Figma",
+      "VS Code",
+      "Chrome",
+      "Node"
+    ],
+    correct: "Figma"
+  },
+
+  {
+    question: "Which is JS framework?",
+    answers: [
+      "Next.js",
+      "HTML",
+      "CSS",
+      "SQL"
+    ],
+    correct: "Next.js"
+  },
+
+  {
+    question: "Which is styling?",
+    answers: [
+      "CSS",
+      "JS",
+      "Python",
+      "Java"
+    ],
+    correct: "CSS"
+  },
+
+  {
+    question: "Which is markup?",
+    answers: [
+      "HTML",
+      "JS",
+      "CSS",
+      "Python"
+    ],
+    correct: "HTML"
+  }
 ];
 
 let index = 0;
@@ -30,17 +229,32 @@ const nextBtn = document.getElementById("next-btn");
 const progressBar = document.getElementById("progress-bar");
 const scoreEl = document.getElementById("score");
 
+/* Shuffle Function */
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
 function loadQuestion() {
   reset();
+
   let q = questions[index];
+
   questionEl.innerText = q.question;
 
-  progressBar.style.width = ((index / questions.length) * 100) + "%";
+  progressBar.style.width =
+    ((index / questions.length) * 100) + "%";
 
-  q.answers.forEach((ans, i) => {
+  // Shuffle answers
+  let shuffledAnswers = [...q.answers];
+  shuffleArray(shuffledAnswers);
+
+  shuffledAnswers.forEach(answer => {
     let btn = document.createElement("button");
-    btn.innerText = ans;
-    btn.onclick = () => selectAnswer(i);
+
+    btn.innerText = answer;
+
+    btn.onclick = () => selectAnswer(answer, q.correct);
+
     answersEl.appendChild(btn);
   });
 }
@@ -50,22 +264,31 @@ function reset() {
   answersEl.innerHTML = "";
 }
 
-function selectAnswer(i) {
-  let correct = questions[index].correct;
+function selectAnswer(selected, correct) {
 
-  Array.from(answersEl.children).forEach((btn, idx) => {
-    if (idx === correct) btn.style.background = "green";
-    else btn.style.background = "red";
+  Array.from(answersEl.children).forEach(btn => {
+
+    if (btn.innerText === correct) {
+      btn.style.background = "green";
+      btn.style.color = "white";
+    } else {
+      btn.style.background = "red";
+      btn.style.color = "white";
+    }
+
     btn.disabled = true;
   });
 
-  if (i === correct) score++;
+  if (selected === correct) {
+    score++;
+  }
 
   nextBtn.style.display = "block";
 }
 
 nextBtn.onclick = () => {
   index++;
+
   if (index < questions.length) {
     loadQuestion();
   } else {
@@ -75,10 +298,15 @@ nextBtn.onclick = () => {
 
 function showScore() {
   questionEl.innerText = "Quiz Completed 🎉";
+
   answersEl.innerHTML = "";
+
   nextBtn.style.display = "none";
+
   scoreEl.classList.remove("hidden");
-  scoreEl.innerText = `Score: ${score}/20`;
+
+  scoreEl.innerText = `Score: ${score}/${questions.length}`;
+
   progressBar.style.width = "100%";
 }
 
